@@ -182,7 +182,7 @@ app.delete('/api/watchlist/:id', (req, res) => {
     res.json(data);
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     const key = process.env.TMDB_API_KEY;
     if (!key || key === 'YOUR_TMDB_API_KEY_HERE') {
@@ -191,3 +191,5 @@ app.listen(PORT, () => {
         console.log(`✅ TMDB_API_KEY loaded: ${key.substring(0, 4)}...${key.substring(key.length - 4)}`);
     }
 });
+
+module.exports = app;
